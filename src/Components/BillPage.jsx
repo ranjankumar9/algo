@@ -9,24 +9,26 @@ const BillPage = () => {
   const [people, setPeople] = useState(1);
 
   const handleBill = (event) => {
-    setBill(event.target.value);
+    setBill(parseInt(event.target.value));
   };
 
   console.log(bill)
 
   const handleTip = (event) => {
-    const tipPercentage = event.target.value;
-    const tipAmount = (bill * tipPercentage) / 100;
-    setTipAmount(tipAmount);
+    const tipPercentage = parseInt(event.target.value);
+    setTipAmount(tipPercentage);
 
   };
 
   console.log(tipAmount)
 
   const handlePeople = (event) => {
-    const peopleValue = event.target.value;
+    const peopleValue = parseInt(event.target.value);
     setPeople(peopleValue);
   };
+  
+  const total = bill+tipAmount ;
+  
 
   const handleReset = () => {
     setBill(0);
@@ -34,7 +36,8 @@ const BillPage = () => {
     setPeople(1);
   };
 
-  const total = bill+tipAmount ;
+
+
 
   return (
     <div className="billbox">
